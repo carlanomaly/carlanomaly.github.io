@@ -282,8 +282,7 @@ segmentation_mask = np.array(img)[:,:,0]
                             <li>
                                 <span class="dir">pointclouds/</span>
                                 <ul>
-                                    <li><span class="binary">000000.bin</span></li>
-                                    <li><span class="binary">labels-000000.bin</span></li>
+                                    <li><span class="binary">000000.feather</span></li>
                                     <li><span>...</span></li>
                                 </ul>
                                 <!-- <li><span class="file">labels.csv</span></li> -->
@@ -293,18 +292,13 @@ segmentation_mask = np.array(img)[:,:,0]
                 <br>
 
                 <p>
-                    Both points and labels are serialized numpy arrays:
-
-
-
+                    These files can be loaded with pandas:
                 </p>
 
                 <p>
-                <pre><code class="language-python"># x, y, z, and reflectance 
-points = np.fromfile("pointclouds/000000.bin", dtype=np.dtype("f4")).reshape(-1, 4)
-
-# instance_id and class_label 
-labels = np.fromfile("pointclouds/labels-000000.bin", dtype=np.uint32).reshape(-1, 2)
+                <pre><code class="language-python">import pandas as pd
+# Columns: x, y, z, angle, object_id, class_id 
+data = pd.read_feather("000000.feather")
 </code></pre>
                 </p>
 
@@ -394,7 +388,7 @@ labels = np.fromfile("pointclouds/labels-000000.bin", dtype=np.uint32).reshape(-
                             <li>
                                 <span class="dir">anomaly-pcl/</span>
                                 <ul>
-                                    <li><span class="binary">000000.bin</span></li>
+                                    <li><span class="binary">000000.feather</span></li>
                                     <li><span>...</span></li>
                                     <li><span class="file">sensor.csv</span></li>
                                 </ul>
@@ -403,21 +397,20 @@ labels = np.fromfile("pointclouds/labels-000000.bin", dtype=np.uint32).reshape(-
                 </ul>
 
                 <p>
-                    The <code>.bin</code> files are serialized numpy vectors with value 0 if normal and anomaly
-                    otherwise.
+                    The <code>.feather</code> files are serialized dataframes with a column for the anomaly label. 
                 </p>
 
 
 
                 <h4>Observation-Level</h4>
                 In CarlAnomaly, an observation is an anomaly when there is an anomaly in any of the sensors.
-                For convenience, these are also stored in CSV format:
+                For convenience, these are also stored in feather format:
                 <ul class="tree">
                     <li>
                         <span class="dir">scenario/</span>
                         <ul>
                             <li>
-                                <span class="file">anomaly-observation.csv</span>
+                                <span class="file">anomaly-observation.feather</span>
                         </ul>
                     </li>
                 </ul>
@@ -431,13 +424,14 @@ labels = np.fromfile("pointclouds/labels-000000.bin", dtype=np.uint32).reshape(-
             <section>
 
 
-                <h3>Additional Sensors</h3>
+                <h3>Additional Data</h3>
                 The dataset additionally contains sensor readings for the following sensors in CSV format:
 
                 <ul>
                     <li><b>IMU</b>: Measuring acceleration and orientation of the ego vehicle</li>
                     <li><b>GNSS</b>: Measuring position of the vehicle</li>
                     <li><b>Weather</b>: Exact weather conditions</li>
+                    <li><b>Actions</b>: Actions executed by the auto-pilot (Note: these are  the actions that are executed by CARLAs traffic manager after the last frame)</li>
                 </ul>
 
 
@@ -446,16 +440,17 @@ labels = np.fromfile("pointclouds/labels-000000.bin", dtype=np.uint32).reshape(-
                     <li>
                         <span class="dir">scenario/</span>
                         <ul>
-                            <li><span class="file">gnss.csv</span></li>
-                            <li><span class="file">imu.csv</span></li>
-                            <li><span class="file">weather.csv</span></li>
+                            <li><span class="file">gnss.feather</span></li>
+                            <li><span class="file">imu.fether</span></li>
+                            <li><span class="file">weather.feather</span></li>
+                            <li><span class="file">actions.feather</span></li>
                         </ul>
                     </li>
                 </ul>
 
                 You can simply load these as pandas dataframes:
                 <pre><code class="language-python">import pandas as pd 
-weather = pd.read_csv("weather.csv")</code></pre>
+weather = pd.read_feather("weather.feather")</code></pre>
 
 
                 <h4>Example: IMU</h3>
