@@ -11,15 +11,16 @@ sections:
     content:
       title: Dataset Overview
       text: |
+        {{< toc-sidebar >}}
         <!-- Placeholder: insert composition, modalities, and annotation schema -->
 
   - block: markdown
     content:
       title: ''
       text: |
-        ### Sensor Setup
+        ## Sensor Setup
 
-        For data collection, we attached an array of sensors to the simulated vehicle. 
+        For data collection, we attached an array of sensors to the simulated vehicle.
 
         <div style="max-width: 500px; margin: auto;">
 
@@ -31,7 +32,7 @@ sections:
     content:
       title: ''
       text: |
-        ### Directory Structure
+        ## Directory Structure
 
         {{< tree >}}
         carlanomaly/
@@ -54,7 +55,7 @@ sections:
     content:
       title: ''
       text: |
-        ### Cameras
+        ## Cameras
 
         The dataset contains pixel- and instance wise segmentation masks for each object in the scene. Each object has a unique ID. Since these annotations where generated in a simulation, the annotations are perfect.
 
@@ -118,7 +119,7 @@ sections:
     content:
       title: ''
       text: |
-        ### Semantic LIDAR Point Clouds
+        ## Semantic LIDAR
 
         Pixel-Anotated LIDAR Pointclouds for each frame with realistic settings.
 
@@ -137,18 +138,9 @@ sections:
         data = pd.read_feather("000000.feather")
         ```
 
-        <div class="image-gallery">
-          <figure>
-            <img src="/img/pcl-0.jpg" alt="LIDAR Example 1">
-            <figcaption>LIDAR Example 1</figcaption>
-          </figure>
-          <figure>
-            <img src="/img/pcl-1.jpg" alt="LIDAR Example 2">
-            <figcaption>LIDAR Example 2</figcaption>
-          </figure>
-        </div>
+        {{< pointcloud-viewer src="/feather/000000.arrow" >}}
 
-        #### KITTI Annotations
+        ### KITTI Annotations
 
         Kitti annotations contain 3D bounding boxes and connect them to the camera.
 
@@ -170,9 +162,9 @@ sections:
     content:
       title: ''
       text: |
-        ### Anomaly Annotations
+        ## Anomaly Annotations
 
-        #### Sample- and Sensor-Level
+        ### Sample- and Sensor-Level
 
         For **cameras** the per-pixel anomaly labels are available in a separate directory. Labels are written in a 1-channel PNG where 0 means normal and everything else means anomaly. Sensor-level anomaly labels are given in a CSV with an `anomaly` column.
 
@@ -196,7 +188,7 @@ sections:
 
         The `.feather` files are serialized dataframes with a column for the anomaly label.
 
-        #### Observation-Level
+        ### Observation-Level
 
         In CarlAnomaly, an observation is an anomaly when there is an anomaly in any of the sensors. For convenience, these are also stored in feather format:
 
@@ -205,7 +197,7 @@ sections:
         └── anomaly-observation.feather
         {{< /tree >}}
 
-        #### Scenario-Level
+        ### Scenario-Level
 
         These labels are given by the directory.
 
@@ -213,7 +205,7 @@ sections:
     content:
       title: ''
       text: |
-        ### Additional Data
+        ## Additional Data
 
         The dataset additionally contains sensor readings for the following sensors in CSV format:
 
@@ -237,7 +229,7 @@ sections:
         weather = pd.read_feather("weather.feather")
         ```
 
-        #### Example: IMU
+        ### Example: IMU
 
         The per-step IMU readings look as follows:
 
@@ -267,7 +259,7 @@ sections:
           </table>
         </div>
 
-        #### Example: Global Position (GNSS)
+        ### Example: Global Position (GNSS)
 
         <div style="max-width: 500px; margin: auto;">
 

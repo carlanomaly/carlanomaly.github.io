@@ -38,8 +38,8 @@ hugoblox:
     style: navbar
     sticky: true
     align: center
-    search: false
-    theme_toggle: false
+    search: true
+    theme_toggle: true
     theme_picker: false
     language_switcher: false
     cta:
@@ -59,12 +59,12 @@ hugoblox:
     math:
       enable: false
     toc:
-      enable: false
+      enable: true
     reading_time:
       enable: false
 
   search:
-    enable: false
+    enable: true
 
   comments:
     enable: false

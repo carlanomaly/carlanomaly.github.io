@@ -47,19 +47,5 @@ sections:
         - Instantaneous weather changes
         - Spawning or vanishing objects
 
-        ### Spawning Road Debris
-
-        {{< video-compare left="/video/ano/spawn-props-front.mp4" left_caption="Front Camera" right="/video/ano/segmentation-spawn-props.mp4" right_caption="Instance-wise Segmentation Mask" >}}
-
-        ### Misbehaving Traffic Lights
-
-        {{< video-compare left="/video/ano/traffic-light-off-front.mp4" left_caption="Front Camera" right="/video/ano/segmentation-traffic-light-off-front.mp4" right_caption="Instance-wise Segmentation Mask" >}}
-
-        ### Changing Weather
-
-        {{< video-compare left="/video/ano/weather-change-front.mp4" left_caption="Front Camera" right="/video/ano/segmentation-weather-change-front.mp4" right_caption="Instance-wise Segmentation Mask" >}}
-
-        ### Flickering Street Lights
-
-        {{< video-compare left="/video/ano/flicker-light-front.mp4" left_caption="Front Camera" right="/video/ano/segmentation-flicker-light-front.mp4" right_caption="Instance-wise Segmentation Mask" >}}
+        {{< anomaly-gallery >}}
 ---

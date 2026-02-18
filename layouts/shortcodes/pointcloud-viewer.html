@@ -1,0 +1,10 @@
+{{/* pointcloud-viewer: Interactive 3D point cloud viewer
+     Usage: {{< pointcloud-viewer src="/feather/000000.feather" >}}
+*/}}
+<div class="pointcloud-viewer" data-src="{{ .Get "src" }}">
+  <div class="pcv-loading">
+    <div class="pcv-spinner"></div>
+    <span>Loading point cloud&hellip;</span>
+  </div>
+  <canvas class="pcv-canvas"></canvas>
+</div>

@@ -1,0 +1,93 @@
+{{/* anomaly-gallery: Tabbed anomaly type gallery */}}
+<div id="anomaly-gallery" class="anomaly-gallery">
+  <div class="ag-tabs">
+    <button class="ag-tab-btn ag-active" data-tab="debris">Road Debris</button>
+    <button class="ag-tab-btn" data-tab="traffic">Traffic Lights</button>
+    <button class="ag-tab-btn" data-tab="weather">Weather</button>
+    <button class="ag-tab-btn" data-tab="lights">Street Lights</button>
+  </div>
+
+  <div class="ag-panel" data-panel="debris">
+    <div class="video-compare">
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/spawn-props-front.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Front Camera</figcaption>
+      </figure>
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/segmentation-spawn-props.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Instance-wise Segmentation Mask</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="ag-panel ag-hidden" data-panel="traffic">
+    <div class="video-compare">
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/traffic-light-off-front.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Front Camera</figcaption>
+      </figure>
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/segmentation-traffic-light-off-front.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Instance-wise Segmentation Mask</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="ag-panel ag-hidden" data-panel="weather">
+    <div class="video-compare">
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/weather-change-front.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Front Camera</figcaption>
+      </figure>
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/segmentation-weather-change-front.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Instance-wise Segmentation Mask</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="ag-panel ag-hidden" data-panel="lights">
+    <div class="video-compare">
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/flicker-light-front.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Front Camera</figcaption>
+      </figure>
+      <figure>
+        <div class="video-compare-wrap">
+          <video controls>
+            <source src="/video/ano/segmentation-flicker-light-front.mp4" type="video/mp4">
+          </video>
+        </div>
+        <figcaption>Instance-wise Segmentation Mask</figcaption>
+      </figure>
+    </div>
+  </div>
+</div>
