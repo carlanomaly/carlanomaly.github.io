@@ -12,8 +12,8 @@ sections:
       title: About the Project
       text: |
         <!-- Placeholder: insert project narrative, contributors, and provenance -->
-        ### Contributor 
-        - Anomymous 
+        ### Contributors 
+        - Anonymous 
       
 
   - block: markdown

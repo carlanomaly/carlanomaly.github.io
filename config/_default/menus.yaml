@@ -5,38 +5,38 @@ main:
   - name: Dataset
     url: /dataset/
     weight: 20
-  - name: Overview
+  - name: Dataset Overview
     parent: Dataset
-    url: /dataset/
-    weight: 20
+    url: /dataset/#
+    weight: 21
   - name: Sensor Setup
     parent: Dataset
     url: /dataset/#sensor-setup
-    weight: 21
+    weight: 22
   - name: Directory Structure
     parent: Dataset
     url: /dataset/#directory-structure
-    weight: 22
+    weight: 23
   - name: Cameras
     parent: Dataset
     url: /dataset/#cameras
-    weight: 23
+    weight: 24
   - name: LIDAR
     parent: Dataset
     url: /dataset/#semantic-lidar
-    weight: 24
+    weight: 25
   - name: Anomalies
     parent: Dataset
     url: /dataset/#anomaly-annotations
-    weight: 25
+    weight: 26
   - name: Additional Data
     parent: Dataset
     url: /dataset/#additional-data
-    weight: 26
+    weight: 27
   - name: Tasks
     url: /tasks/
     weight: 40
-  - name: Overview
+  - name: Task Overview
     parent: Tasks
     url: /tasks/#
     weight: 41

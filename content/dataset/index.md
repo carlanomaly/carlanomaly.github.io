@@ -21,10 +21,17 @@ sections:
         ## Sensor Setup
 
         For data collection, we attached an array of sensors to the simulated vehicle.
+        On each of the 4 sides, `front`, `left`, `right`, `rear`, we attached virtual camera sensors that capture RBG-D data and instance segmentation masks. 
+        Additionally, there is a LiDAR and a GNSS sensor at the center of the vehicle, as well as an IMU. 
+        Furthermore, we capture the weather from the environment, as well as the control commands issued by 
+        CARLAs autopilot. 
 
         <div style="max-width: 500px; margin: auto;">
 
-        ![Sensor Setup](/img/carla-setup.png)
+        <figure>
+          <img src="/img/carla-setup.png">
+          <figcaption style="text-align: center;">Sensor Setup</figcaption>
+        </figure>
 
         </div>
 
@@ -39,14 +46,11 @@ sections:
         ├── train/
         │   ├── scenario-1/
         │   └── ...
-        ├── val/
-        │   ├── scenario-1/
-        │   └── ...
         └── test/
             ├── normal/
             │   ├── scenario-1/
             │   └── ...
-            └── anomalous/
+            └── anomaly/
                 ├── scenario-1/
                 └── ...
         {{< /tree >}}
@@ -86,6 +90,8 @@ sections:
             ├── 000000.png
             └── ...
         {{< /tree >}}
+
+        The instance segmentation masks can be loaded as follows:
 
         ```python
         img = Image.open("segmentation-front/000099.png")
@@ -216,31 +222,33 @@ sections:
       text: |
         ## Additional Data
 
-        The dataset additionally contains sensor readings for the following sensors in CSV format:
+        The dataset additionally contains sensor readings for the following sensors in feather format:
 
         - **IMU**: Measuring acceleration and orientation of the ego vehicle
         - **GNSS**: Measuring position of the vehicle
         - **Weather**: Exact weather conditions
         - **Actions**: Actions executed by the auto-pilot (Note: these are the actions that are executed by CARLAs traffic manager after the last frame)
+        - **Collisions**: List of collision events. There can be multiple collisions per frame.
 
         {{< tree >}}
         scenario/
         ├── gnss.feather
-        ├── imu.fether
+        ├── imu.feather
         ├── weather.feather
+        ├── collisions.feather
         └── actions.feather
         {{< /tree >}}
 
-        You can simply load these as pandas dataframes:
-
-        ```python
-        import pandas as pd
-        weather = pd.read_feather("weather.feather")
-        ```
+        You can simply load these as pandas dataframes.
 
         ### Example: IMU
 
-        The per-step IMU readings look as follows:
+        ```python
+        import pandas as pd
+        weather = pd.read_feather("imu.feather")
+        ```
+
+        The per-frame IMU readings look as follows:
 
         <div class="table-wrapper">
           <table class="cool-table">
