@@ -57,6 +57,21 @@ sections:
       text: |
         ## Cameras
 
+        <div class="image-gallery">
+          <figure>
+            <img src="/img/rgb-front-0.jpg" alt="Camera Image">
+            <figcaption>Camera Image</figcaption>
+          </figure>
+          <figure>
+            <img src="/img/semantic-front-0.png" alt="Instance Segmentation Mask">
+            <figcaption>Instance Segmentation Mask</figcaption>
+          </figure>
+          <figure>
+            <img src="/img/front-depth-0.png" alt="Depth Map">
+            <figcaption>Depth Map</figcaption>
+          </figure>
+        </div>
+
         The dataset contains pixel- and instance wise segmentation masks for each object in the scene. Each object has a unique ID. Since these annotations where generated in a simulation, the annotations are perfect.
 
         {{< tree >}}
@@ -85,35 +100,9 @@ sections:
         segmentation_mask = np.array(img)[:,:,0]
         ```
 
-        <div class="image-gallery">
-          <figure>
-            <img src="/img/000003.jpg" alt="Camera Image">
-            <figcaption>Camera Image</figcaption>
-          </figure>
-          <figure>
-            <img src="/img/000003.png" alt="Instance Segmentation Mask">
-            <figcaption>Instance Segmentation Mask</figcaption>
-          </figure>
-          <figure>
-            <img src="/img/000003.png" alt="Depth Map">
-            <figcaption>Depth Map</figcaption>
-          </figure>
-        </div>
 
-        <div class="image-gallery">
-          <figure>
-            <img src="/img/000080.jpg" alt="Camera Image">
-            <figcaption>Camera Image</figcaption>
-          </figure>
-          <figure>
-            <img src="/img/000080.png" alt="Instance Segmentation Mask">
-            <figcaption>Instance Segmentation Mask</figcaption>
-          </figure>
-          <figure>
-            <img src="/img/000080.png" alt="Depth Map">
-            <figcaption>Depth Map</figcaption>
-          </figure>
-        </div>
+
+
 
   - block: markdown
     content:
@@ -164,29 +153,42 @@ sections:
       text: |
         ## Anomaly Annotations
 
-        ### Sample- and Sensor-Level
+        In the CarlAnomaly dataset, anomaly detection can be done on several different levels.
 
-        For **cameras** the per-pixel anomaly labels are available in a separate directory. Labels are written in a 1-channel PNG where 0 means normal and everything else means anomaly. Sensor-level anomaly labels are given in a CSV with an `anomaly` column.
+        ### Sample-Level
+
+        For **cameras** the per-pixel anomaly labels are available in a separate directory. Labels are written in a 1-channel PNG where 0 means normal and everything else means anomaly. 
 
         {{< tree >}}
         scenario/
         └── anomaly-front/
             ├── 000000.png
             ├── ...
-            └── sensor.csv
         {{< /tree >}}
 
         For **LiDAR** the anomaly labels are similarly available in a separate directory:
 
         {{< tree >}}
         scenario/
-        └── anomaly-pcl/
+        └── anomaly-lidar/
             ├── 000000.feather
             ├── ...
-            └── sensor.csv
         {{< /tree >}}
 
         The `.feather` files are serialized dataframes with a column for the anomaly label.
+
+        ### Sensor Level 
+        Sensor-level anomaly labels are given in a `.feather` file with an `anomaly` column.
+
+        {{< tree >}}
+        scenario/
+        └── anomaly-front/
+            ├── ...
+            └── sensor.feather
+        └── anomaly-lidar/
+            ├── ...
+            └── sensor.feather
+        {{< /tree >}}
 
         ### Observation-Level
 
@@ -196,6 +198,13 @@ sections:
         scenario/
         └── anomaly-observation.feather
         {{< /tree >}}
+
+        The columns are: 
+        - `anomaly`: True or False 
+        - `tick`: Current frame number  
+        - `anomaly_obj_ids`: List of objects ids for objects considered as anomalies 
+        - `anomaly_class_ids`: List of class ids for objects considered as anomalies 
+        - `meta`: Metadata 
 
         ### Scenario-Level
 
@@ -259,11 +268,16 @@ sections:
           </table>
         </div>
 
-        ### Example: Global Position (GNSS)
+        ### Example: Global Position
 
         <div style="max-width: 500px; margin: auto;">
 
-        ![GNSS Coordinates in Matplotlib](/img/gnss.webp)
+        <figure>
+          <img src="/img/gnss.webp">
+          <figcaption style="text-align: center;">Plot of vehicle position over time</figcaption>
+        </figure>
+
+        
 
         </div>
 ---

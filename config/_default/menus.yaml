@@ -33,15 +33,27 @@ main:
     parent: Dataset
     url: /dataset/#additional-data
     weight: 26
-  - name: Download
-    url: /download/
-    weight: 30
   - name: Tasks
     url: /tasks/
     weight: 40
+  - name: Overview
+    parent: Tasks
+    url: /tasks/#
+    weight: 41
+  - name: Segmentation
+    parent: Tasks
+    url: /tasks/#semantic-segmentation
+    weight: 43
+  - name: Object Detection
+    parent: Tasks
+    url: /tasks/#object-detection
+    weight: 44
+  - name: Download
+    url: /download/
+    weight: 50
   - name: Resources
     url: /resources/
-    weight: 50
+    weight: 60
   - name: About
     url: /about/
-    weight: 60
+    weight: 70

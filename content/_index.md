@@ -48,4 +48,11 @@ sections:
         - Spawning or vanishing objects
 
         {{< anomaly-gallery >}}
+
+
+  - block: markdown
+    content:
+      title: 'License: MIT'
+      text: |
+        The CarlAnomaly dataset, including all software and models, is licensed under the MIT which you can find [here](https://mit-license.org/).
 ---

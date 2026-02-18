@@ -40,10 +40,4 @@ sections:
         wget https://files.kondas.de/carlanomaly/<name>.tar.gz
         tar -xzf <name>.tar.gz
         ```
-
-  - block: markdown
-    content:
-      title: 'License: MIT'
-      text: |
-        The CarlAnomaly dataset, including all software and models, is licensed under the MIT which you can find [here](https://mit-license.org/).
 ---

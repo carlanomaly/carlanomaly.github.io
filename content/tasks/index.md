@@ -12,4 +12,33 @@ sections:
       title: Tasks
       text: |
         <!-- Placeholder: task descriptions will be added here -->
+        CarlAnomaly supports multiple tasks. 
+
+  - block: markdown
+    content:
+      title: ''
+      text: |
+        ### Semantic Segmentation 
+
+
+  - block: markdown
+    content:
+      title: ''
+      text: |
+        ### Instance Segmentation 
+
+
+  - block: markdown
+    content:
+      title: ''
+      text: |
+        ### Point-Cloud Segmentation 
+
+  - block: markdown
+    content:
+      title: ''
+      text: |
+        ### Object-Detection
+
+
 ---
