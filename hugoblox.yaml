@@ -1,0 +1,7 @@
+build:
+  hugo_version: '0.155.3'
+deploy:
+  host: 'github-pages'
+template:
+  id: "custom"
+  name: "CarlAnomaly"

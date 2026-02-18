@@ -1,0 +1,19 @@
+main:
+  - name: Home
+    url: /
+    weight: 10
+  - name: Dataset
+    url: /dataset/
+    weight: 20
+  - name: Download
+    url: /download/
+    weight: 30
+  - name: Tasks
+    url: /tasks/
+    weight: 40
+  - name: Resources
+    url: /resources/
+    weight: 50
+  - name: About
+    url: /about/
+    weight: 60

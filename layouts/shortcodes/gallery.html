@@ -1,0 +1,10 @@
+{{/* gallery: Flexible image gallery
+     Usage: {{< gallery >}}
+       ![Caption](image_url)
+       ![Caption](image_url)
+     {{< /gallery >}}
+     Or with max-width: {{< gallery max-width="500px" >}}
+*/}}
+<div class="image-gallery"{{ with .Get "max-width" }} style="max-width: {{ . }}; margin: auto;"{{ end }}>
+  {{ .Inner | markdownify }}
+</div>

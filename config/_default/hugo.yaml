@@ -1,0 +1,36 @@
+# Hugo Configuration
+# Documentation: https://gohugo.io/getting-started/configuration/
+
+title: 'CarlAnomaly Dataset'
+baseURL: 'https://carlanomaly.github.io/'
+
+defaultContentLanguage: en
+hasCJKLanguage: false
+removePathAccents: true
+
+build:
+  writeStats: true
+enableGitInfo: false
+summaryLength: 30
+pagination:
+  pagerSize: 10
+enableEmoji: false
+enableRobotsTXT: true
+footnotereturnlinkcontents: <sup>^</sup>
+disableAliases: true
+outputs:
+  home: [HTML, RSS]
+  section: [HTML, RSS]
+imaging:
+  resampleFilter: lanczos
+  quality: 90
+  anchor: smart
+timeout: 600000
+markup:
+  _merge: deep
+  highlight:
+    lineNos: false
+security:
+  _merge: deep
+sitemap:
+  _merge: deep

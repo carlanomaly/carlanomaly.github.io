@@ -1,0 +1,77 @@
+hugoblox:
+  schema: "2.0"
+
+  identity:
+    name: "CarlAnomaly Dataset"
+    organization: ""
+    type: organization
+    tagline: "A CARLA-based Dataset for Multi-Modal Anomaly Detection in Autonomous Driving Scenarios"
+    description: "CarlAnomaly is a large-scale multi-modal anomaly detection dataset generated with the CARLA simulator for autonomous driving research."
+    social:
+      twitter: ""
+
+  theme:
+    mode: light
+    pack: "default"
+    colors:
+      primary: "#4b79a1"
+      secondary: "#283e51"
+      neutral: ""
+    surfaces:
+      header:
+        background: "#1a1f2e"
+        foreground: "#fff"
+      footer:
+        background: "#1a1f2e"
+        foreground: "#fff"
+
+  typography:
+    font: "sans"
+    size: "md"
+
+  layout:
+    radius: "md"
+    spacing: "comfortable"
+
+  header:
+    enable: true
+    style: navbar
+    sticky: true
+    align: center
+    search: false
+    theme_toggle: false
+    theme_picker: false
+    language_switcher: false
+    cta:
+      enable: false
+
+  footer:
+    style: minimal
+    language_switcher: false
+    text: ""
+
+  copyright:
+    notice: "&copy; {year} CarlAnomaly Dataset"
+    license:
+      type: custom
+
+  content:
+    math:
+      enable: false
+    toc:
+      enable: false
+    reading_time:
+      enable: false
+
+  search:
+    enable: false
+
+  comments:
+    enable: false
+
+  analytics:
+    google:
+      measurement_id: ""
+
+  pro:
+    hide_attribution: false

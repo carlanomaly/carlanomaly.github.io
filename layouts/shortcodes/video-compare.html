@@ -1,0 +1,21 @@
+{{/* video-compare: Side-by-side video comparison */}}
+<div class="video-compare">
+  <figure>
+    <div class="video-compare-wrap">
+      <video controls>
+        <source src="{{ .Get "left" }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <figcaption>{{ .Get "left_caption" }}</figcaption>
+  </figure>
+  <figure>
+    <div class="video-compare-wrap">
+      <video controls>
+        <source src="{{ .Get "right" }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <figcaption>{{ .Get "right_caption" }}</figcaption>
+  </figure>
+</div>

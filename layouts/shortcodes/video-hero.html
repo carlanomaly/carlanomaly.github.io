@@ -1,0 +1,9 @@
+{{/* video-hero: Full-width video hero with overlay text */}}
+<section class="video-hero">
+  <video src="{{ .Get "src" }}" autoplay muted loop playsinline></video>
+  <div class="video-hero-overlay"></div>
+  <div class="video-hero-caption">
+    <h1>{{ .Get "title" }}</h1>
+    {{ with .Get "subtitle" }}<p class="video-hero-subtitle">{{ . | safeHTML }}</p>{{ end }}
+  </div>
+</section>

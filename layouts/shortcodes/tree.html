@@ -1,0 +1,11 @@
+{{/* tree: Display directory tree in a code block style
+     Usage: {{< tree >}}
+     carlanomaly/
+     ├── train/
+     │   ├── scenario-1/
+     │   └── ...
+     {{< /tree >}}
+*/}}
+<div class="dir-tree">
+<pre>{{ .Inner }}</pre>
+</div>
