@@ -346,6 +346,88 @@
   margin: 1rem 0;
 }
 
+/* ── Contributor cards ────────────────────────── */
+
+.contributor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0 0;
+}
+
+.contributor-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.875rem;
+  padding: 1.75rem 1.25rem 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contributor-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(75, 121, 161, 0.12);
+}
+
+.contributor-avatar {
+  width: 5.5rem;
+  height: 5.5rem;
+  border-radius: 50%;
+  background: #dce8f2 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23dce8f2'/%3E%3Ccircle cx='40' cy='29' r='16' fill='%234b79a1' opacity='.6'/%3E%3Cellipse cx='40' cy='70' rx='27' ry='19' fill='%234b79a1' opacity='.6'/%3E%3C/svg%3E") center/cover no-repeat;
+  margin-bottom: 1rem;
+  border: 3px solid #eef4f9;
+}
+
+.contributor-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.25rem;
+}
+
+.contributor-affiliation {
+  font-size: 0.85rem;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.dark .contributor-card {
+  background: #1e2433;
+  border-color: #2d3548;
+}
+
+.dark .contributor-card:hover {
+  box-shadow: 0 8px 20px rgba(75, 121, 161, 0.2);
+}
+
+.dark .contributor-avatar {
+  border-color: #253347;
+}
+
+.dark .contributor-name {
+  color: #e2e8f0;
+}
+
+.dark .contributor-affiliation {
+  color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+  .contributor-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .contributor-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ── FAQ section ──────────────────────────────── */
 
 .faq details {
@@ -400,7 +482,7 @@
 }
 
 .faq details > :not(summary) {
-  padding: 0 1.25rem 1rem;
+  padding: 1rem 1.5rem 1.5rem;
   color: #555;
   line-height: 1.7;
 }
